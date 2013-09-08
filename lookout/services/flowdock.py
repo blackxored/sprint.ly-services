@@ -73,7 +73,7 @@ class Service(ServiceBase):
                 'project': self._strip(payload['product']['name']),
                 'format': 'html',
                 'tags': payload['attributes']['tags'],
-                'link': payload['attributes']['short_url']
+                'link': payload['attributes']['short_url'],
                 'reply_to': payload['attributes']['email']['discussion']
             }
 
@@ -112,7 +112,7 @@ class Service(ServiceBase):
                 'project': self._strip(payload['product']['name']),
                 'format': 'html',
                 'tags': payload['attributes']['item']['tags'],
-                'link': payload['attributes']['item']['short_url']
+                'link': payload['attributes']['item']['short_url'],
                 'reply_to': payload['attributes']['item']['email']['discussion']
             }
 
