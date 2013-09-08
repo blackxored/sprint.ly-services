@@ -37,7 +37,8 @@ class Service(ServiceBase):
                 'project': self._strip(payload['product']['name']),
                 'format': 'html',
                 'tags': payload['attributes']['item']['tags'],
-                'link': payload['attributes']['item']['short_url']
+                'link': payload['attributes']['item']['short_url'],
+                'reply_to': payload['attributes']['item']['email']['discussion']
             }
 
         elif payload['model'] == 'Item':
@@ -73,6 +74,7 @@ class Service(ServiceBase):
                 'format': 'html',
                 'tags': payload['attributes']['tags'],
                 'link': payload['attributes']['short_url']
+                'reply_to': payload['attributes']['email']['discussion']
             }
 
         elif payload['model'] == 'Block':
@@ -111,6 +113,7 @@ class Service(ServiceBase):
                 'format': 'html',
                 'tags': payload['attributes']['item']['tags'],
                 'link': payload['attributes']['item']['short_url']
+                'reply_to': payload['attributes']['item']['email']['discussion']
             }
 
         elif payload['model'] == 'Favorite':
@@ -131,7 +134,8 @@ class Service(ServiceBase):
                 'project': self._strip(payload['product']['name']),
                 'format': 'html',
                 'tags': payload['attributes']['item']['tags'],
-                'link': payload['attributes']['item']['short_url']
+                'link': payload['attributes']['item']['short_url'],
+                'reply_to': payload['attributes']['item']['email']['discussion']
             }
 
         elif payload['model'] == 'Deploy':
@@ -159,7 +163,8 @@ class Service(ServiceBase):
                 'subject': subject,
                 'content': message,
                 'project': self._strip(payload['product']['name']),
-                'format': 'html'
+                'format': 'html',
+                'reply_to': payload['attributes']['item']['email']['discussion']
             }
         else:
             message = None
